@@ -1,12 +1,12 @@
-use master
-drop  database TestPromPeru
-create  database TestPromPeru
-use TestPromPeru
+USE master;
+DROP DATABASE IF EXISTS TestPromPeru_Dev;
+CREATE DATABASE TestPromPeru_Dev;
+USE TestPromPeru_Dev;
 
 -- Creación de tablas
 
 CREATE TABLE Multimedia (
-    Mult_ID INT PRIMARY KEY,
+    Mult_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_URLImagen VARCHAR(255),
     Mult_URLVideo VARCHAR(255),
     Mult_URLIcon VARCHAR(255),
@@ -14,38 +14,36 @@ CREATE TABLE Multimedia (
 );
 
 CREATE TABLE Banner (
-    Bann_ID INT PRIMARY KEY,
+    Bann_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Bann_Orden INT,
     Bann_Nombre VARCHAR(50)
 );
 
 CREATE TABLE Informacion (
-    Info_ID INT PRIMARY KEY,
+    Info_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Info_Titulo VARCHAR(255),
     Info_Descripcion VARCHAR(MAX)
 );
 
 CREATE TABLE Requisito (
-    Requ_ID INT PRIMARY KEY,
+    Requ_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Requ_Orden INT,
     Requ_Requisito VARCHAR(50)
 );
 
 CREATE TABLE Inscripcion (
-    Insc_ID INT PRIMARY KEY,
+    Insc_ID INT IDENTITY(1,1) PRIMARY KEY,
     Etap_ID INT,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Insc_Titulo VARCHAR(50),
     Insc_Contenido VARCHAR(200)
 );
 
-
-
 CREATE TABLE Beneficio (
-    Bene_ID INT PRIMARY KEY,
+    Bene_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Bene_Beneficio VARCHAR(50),
     Bene_Descripcion VARCHAR(200),
@@ -53,14 +51,14 @@ CREATE TABLE Beneficio (
 );
 
 CREATE TABLE CasoExito (
-    Cexi_ID INT PRIMARY KEY,
+    Cexi_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Cexi_Casos VARCHAR(50),
     Cexi_Orden INT
 );
 
 CREATE TABLE EmpresaGraduada (
-    Egra_ID INT PRIMARY KEY,
+    Egra_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Egra_NombreEmpresa VARCHAR(50),
     Egra_Orden INT,
@@ -68,7 +66,7 @@ CREATE TABLE EmpresaGraduada (
 );
 
 CREATE TABLE Contacto (
-    Cont_ID INT PRIMARY KEY,
+    Cont_ID INT IDENTITY(1,1) PRIMARY KEY,
     Cont_Nombre VARCHAR(50),
     Cont_Apellido VARCHAR(50),
     Cont_Correo VARCHAR(50),
@@ -76,7 +74,7 @@ CREATE TABLE Contacto (
 );
 
 CREATE TABLE Evaluacion (
-    Eval_ID INT PRIMARY KEY,
+    Eval_ID INT IDENTITY(1,1) PRIMARY KEY,
     Eval_Alternativa VARCHAR(1),
     Eval_RespuestaCorrecta VARCHAR(500),
     Eval_Aprobado BIT,
@@ -86,7 +84,7 @@ CREATE TABLE Evaluacion (
 );
 
 CREATE TABLE Cliente (
-    Clie_ID INT PRIMARY KEY,
+    Clie_ID INT IDENTITY(1,1) PRIMARY KEY,
     Clie_RUC VARCHAR(11),
     Clie_RazonSocial VARCHAR(20),
     Clie_NombreComercial VARCHAR(20),
@@ -97,9 +95,8 @@ CREATE TABLE Cliente (
     Clie_Provincia VARCHAR(15)
 );
 
-
 CREATE TABLE Respuesta (
-    Resp_ID INT PRIMARY KEY,
+    Resp_ID INT IDENTITY(1,1) PRIMARY KEY,
     Resp_Alternativa VARCHAR(1),
     Resp_Respuesta VARCHAR(500),
     Resp_Orden INT,
@@ -107,7 +104,7 @@ CREATE TABLE Respuesta (
 );
 
 CREATE TABLE Pregunta (
-    Preg_ID INT PRIMARY KEY,
+    Preg_ID INT IDENTITY(1,1) PRIMARY KEY,
     Resp_ID INT FOREIGN KEY REFERENCES Respuesta(Resp_ID),
     Eval_ID INT FOREIGN KEY REFERENCES Evaluacion(Eval_ID),
     Preg_Pregunta VARCHAR(500),
@@ -117,7 +114,7 @@ CREATE TABLE Pregunta (
 );
 
 CREATE TABLE Etapa (
-    Etap_ID INT PRIMARY KEY,
+    Etap_ID INT IDENTITY(1,1) PRIMARY KEY,
     Clie_ID INT FOREIGN KEY REFERENCES Cliente(Clie_ID),
     Preg_ID INT FOREIGN KEY REFERENCES Pregunta(Preg_ID),
     Etap_Etapa VARCHAR(50),
@@ -126,13 +123,8 @@ CREATE TABLE Etapa (
     Etap_FechaInscripcion DATETIME
 );
 
-
-
-
-
-
 CREATE TABLE Curso (
-    Curs_ID INT PRIMARY KEY,
+    Curs_ID INT IDENTITY(1,1) PRIMARY KEY,
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
     Preg_ID INT,
     Curs_NombreCurso VARCHAR(50),
@@ -145,7 +137,7 @@ CREATE TABLE Curso (
 );
 
 CREATE TABLE Programa (
-    Prog_ID INT PRIMARY KEY,
+    Prog_ID INT IDENTITY(1,1) PRIMARY KEY,
     Clie_ID INT FOREIGN KEY REFERENCES Cliente(Clie_ID),
     Bann_ID INT FOREIGN KEY REFERENCES Banner(Bann_ID),
     Info_ID INT FOREIGN KEY REFERENCES Informacion(Info_ID),
@@ -162,15 +154,14 @@ CREATE TABLE Programa (
 );
 
 CREATE TABLE Usuario (
-    Usua_ID INT PRIMARY KEY,
+    Usua_ID INT IDENTITY(1,1) PRIMARY KEY,
     Usua_Usuario VARCHAR(50),
     Usua_Contrasenia VARCHAR(200),
-    Usua_Cargo VARCHAR(50),
-    
+    Usua_Cargo VARCHAR(50)
 );
 
 CREATE TABLE Auditoria (
-	Audi_ID INT PRIMARY KEY,
+    Audi_ID INT IDENTITY(1,1) PRIMARY KEY,
     Prog_ID INT FOREIGN KEY REFERENCES Programa(Prog_ID),
     Clie_ID INT FOREIGN KEY REFERENCES Cliente(Clie_ID),
     Bann_ID INT FOREIGN KEY REFERENCES Banner(Bann_ID),
@@ -183,19 +174,17 @@ CREATE TABLE Auditoria (
     Cont_ID INT FOREIGN KEY REFERENCES Contacto(Cont_ID),
     Curs_ID INT FOREIGN KEY REFERENCES Curso(Curs_ID),
     Mult_ID INT FOREIGN KEY REFERENCES Multimedia(Mult_ID),
-	Usua_ID INT FOREIGN KEY REFERENCES Usuario(Usua_ID),
-	Preg_ID INT FOREIGN KEY REFERENCES Pregunta(Preg_ID),
-	Resp_ID INT FOREIGN KEY REFERENCES Respuesta(Resp_ID),
+    Usua_ID INT FOREIGN KEY REFERENCES Usuario(Usua_ID),
+    Preg_ID INT FOREIGN KEY REFERENCES Pregunta(Preg_ID),
+    Resp_ID INT FOREIGN KEY REFERENCES Respuesta(Resp_ID),
     Eval_ID INT FOREIGN KEY REFERENCES Evaluacion(Eval_ID),
-	Audi_UsuarioCreacion  VARCHAR(50),
-	Audi_UsuarioEdicion VARCHAR(50),
-	Audi_UsuarioEliminacion VARCHAR(50),
-	Audi_FechaCreacion DATETIME,
-	Audi_FechaEdicion DATETIME,
-	Audi_FechaEliminacion DATETIME,
-	Audi_IpCreacion VARCHAR(20),
-	Audi_IpEdicion VARCHAR(20),
-	Audi_IpEliminacion VARCHAR(20),
+    Audi_UsuarioCreacion VARCHAR(50),
+    Audi_UsuarioEdicion VARCHAR(50),
+    Audi_UsuarioEliminacion VARCHAR(50),
+    Audi_FechaCreacion DATETIME,
+    Audi_FechaEdicion DATETIME,
+    Audi_FechaEliminacion DATETIME,
+    Audi_IpCreacion VARCHAR(20),
+    Audi_IpEdicion VARCHAR(20),
+    Audi_IpEliminacion VARCHAR(20)
 );
-
-

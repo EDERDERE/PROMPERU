@@ -180,6 +180,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PROMPERU.BussinessEntity.BE\PROMPERU.BussinessEntity.BE.csproj">
+      <Project>{62B99750-025B-4DD0-AC9E-8B9FF71A2A47}</Project>
+      <Name>PROMPERU.BussinessEntity.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PROMPERU.BussinessLogic.BL\PROMPERU.BussinessLogic.BL.csproj">
+      <Project>{0C09A02C-0CDB-44AA-9607-6F2A1B2CF0BB}</Project>
+      <Name>PROMPERU.BussinessLogic.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
