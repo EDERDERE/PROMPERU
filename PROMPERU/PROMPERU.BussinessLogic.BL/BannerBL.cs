@@ -1,4 +1,5 @@
-﻿using PROMPERU.BussinessEntity.BE;
+﻿using NLog;
+using PROMPERU.BussinessEntity.BE;
 using PROMPERU.DataAccess.DA;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace PROMPERU.BussinessLogic.BL
 {
     public class BannerBL
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly BannerDA bannerDA;
 
         public BannerBL()
@@ -28,6 +30,7 @@ namespace PROMPERU.BussinessLogic.BL
             catch (Exception ex)
             {
                 throw new Exception("Error en la lógica de negocio al insertar el Banner", ex);
+                LogManagerHelper.LogError("Error al realizar la operación", ex);
             }
         }
 

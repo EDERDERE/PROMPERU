@@ -1,0 +1,40 @@
+2025-01-03 02:22:39.6689 Error Error al realizar la operación System.Exception: Error en la lógica de negocio al listar los Banners ---> System.Exception: Error al listar los Banners ---> System.Data.SqlClient.SqlException: Could not find stored procedure 'U4524SP_Banner_LIS'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en PROMPERU.DataAccess.DA.BannerDA.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.DataAccess.DA\BannerDA.cs:línea 260
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en PROMPERU.DataAccess.DA.BannerDA.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.DataAccess.DA\BannerDA.cs:línea 280
+   en PROMPERU.BussinessLogic.BL.BannerBL.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BussinessLogic.BL\BannerBL.cs:línea 77
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en PROMPERU.BussinessLogic.BL.BannerBL.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BussinessLogic.BL\BannerBL.cs:línea 81
+   en PROMPERU.FrontOffice.Web.Controllers.BannerController.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BackOffice.Web\Controllers\BannerController.cs:línea 25
+2025-01-03 02:24:54.5610 Error Error al realizar la operación System.Exception: Error en la lógica de negocio al listar los Banners ---> System.Exception: Error al listar los Banners ---> System.Data.SqlClient.SqlException: Could not find stored procedure 'U4524SP_Banner_LIS'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en PROMPERU.DataAccess.DA.BannerDA.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.DataAccess.DA\BannerDA.cs:línea 260
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en PROMPERU.DataAccess.DA.BannerDA.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.DataAccess.DA\BannerDA.cs:línea 280
+   en PROMPERU.BussinessLogic.BL.BannerBL.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BussinessLogic.BL\BannerBL.cs:línea 77
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en PROMPERU.BussinessLogic.BL.BannerBL.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BussinessLogic.BL\BannerBL.cs:línea 81
+   en PROMPERU.FrontOffice.Web.Controllers.BannerController.ListarBanners() en D:\PROM_PERU\PROMPERU\PROMPERU.BackOffice.Web\Controllers\BannerController.cs:línea 25

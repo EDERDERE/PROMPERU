@@ -12,6 +12,9 @@ namespace PROMPERU.BackOffice.Web
     {
         protected void Application_Start()
         {
+            // Inicializa NLog al iniciar la aplicación
+            LogManagerHelper.Inicializar();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

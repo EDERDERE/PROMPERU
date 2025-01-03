@@ -22,11 +22,11 @@ namespace PROMPERU.FrontOffice.Web.Controllers
         {
             try
             {
-                var banners = bannerBL.ListarBanners();
+                var banners = bannerBL.ListarBanners();  
                 return View(banners); // Asegúrate de tener una vista asociada
             }
             catch (Exception ex)
-            {
+            {           
                 ViewBag.Error = ex.Message;
                 return View("Error"); // Vista de error
             }
